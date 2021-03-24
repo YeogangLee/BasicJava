@@ -17,16 +17,19 @@ public class Score_test_ {
 		 * 과목평균	90.00	90.00	90.00	90.00	90.00	90.00	90.00
 		 */
 		
+		// 1.
 		String[] names = {"허지영", "김민지", "김동민", "배현태", "여인욱", "김동희", "김인혁", "이영섭", "정선영", "이지향", "김용진"};
 		String[] subjects = {"국어", "영어", "수학", "사회", "과학", "Oracle", "Java"};
 		int[][] score = new int[names.length][subjects.length];
 		
+		// 2.
 		for(int i = 0; i < score.length; i++){
 			for(int j = 0; j < score[i].length; j++){
 				score[i][j] = (int)(Math.random() * 101);
 			}
 		}
 		
+		// 3.
 		int[] nameSum = new int[score.length];
 		double[] nameAvg = new double[score.length];
 		for(int i = 0; i < score.length; i++){
@@ -36,6 +39,7 @@ public class Score_test_ {
 			nameAvg[i] = Math.round((double)nameSum[i] / subjects.length * 100) / 100.0;
 		}
 		
+		// 4.
 		int[] subSum = new int[subjects.length];
 		double[] subAvg = new double[subjects.length];
 		for(int i = 0; i < subjects.length; i++){
@@ -45,6 +49,7 @@ public class Score_test_ {
 			subAvg[i] = Math.round((double)subSum[i] / score.length * 100) / 100.0;
 		}
 		
+		// 5.
 		int[] rank = new int[score.length];
 		for(int i = 0; i < score.length; i++){
 			rank[i] = 1;
@@ -106,6 +111,7 @@ public class Score_test_ {
 		for(int i = 0; i < subAvg.length; i++){
 			System.out.print(subAvg[i] + "\t");
 		}
+		
 	}
 
 }

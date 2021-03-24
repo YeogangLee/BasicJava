@@ -15,28 +15,26 @@ public class Sort {
 		
 		int[] arr = new int[10];
 		
-		for (int i = 0; i < arr.length; i++){
+		for(int i = 0; i < arr.length; i++){
 			arr[i] = (int)(Math.random() * 100) + 1;
 		}
 		System.out.println(Arrays.toString(arr));
+
 		
 		// 석차 구하기
-//		int[] rank = new int[arr.length];
-//		for(int i = 0; i < arr.length; i++){
-//			rank[i] = 1;			
-//		} // 1등부터 시작할 거라서 배열을 전부 다 1로 채워줌
-//		
-//		for(int i = 0; i < arr.length; i++){
-//			for(int j = 0; j < arr.length; j++){
-//				if(arr[i] < arr[j]){
-//					rank[i]++;
-//				}
-//			}
-//		}
-//		for(int i = 0; i < arr.length; i++){
-//			System.out.println(arr[i] + " : " + rank[i] + "등");
-//		}
-		
+		int[] rank = new int[arr.length];
+		for(int i = 0; i < arr.length; i++){
+			rank[i] = 1;	
+			for(int j = 0; j < arr.length; j++){
+				if(arr[i] < arr[j]){
+					rank[i]++;
+				}
+			}
+		}
+		for(int i = 0; i < arr.length; i++){
+			System.out.println(arr[i] + " : " + rank[i] + "등 ");
+		}
+		System.out.println();
 
 		
 		
@@ -57,27 +55,44 @@ public class Sort {
 		 * 
 		 */
 		
-		int tmp = 0;
-
-		for (int i = 0; i < arr.length - 1; i++) {
-			int min = i; 
-			// 첫 번째 값을 넣는 게 아니라 첫 번째 인덱스를 넣고 시작, 최솟값의 위치를 알아야 바꾸니까
-			
-				// j는 항상 i다음부터 비교하므로 i+1
-			for (int j = i + 1; j < arr.length; j++) { 
-				if (arr[j] < arr[min]) {
-					min = j;
-					// arr[min] 이 개념 하나로, 
-					// 최솟값의 인덱스를 카운트 할 수도 있고, 그 인덱스로 값에 접근할 수도 있다 
-				}
-			}
-			tmp = arr[i];
-			arr[i] = arr[min];
-			arr[min] = tmp;
-			// 이 과정-최솟값을 찾은 후의 자리 변경-을 위해 위의 j값을 min에 대입한 것이고
-			// 따라서 min은 i의 for문 안쪽에 있어도 된다.
-		}
-		System.out.println(Arrays.toString(arr));
+//		int tmp = 0;
+//
+//		for (int i = 0; i < arr.length - 1; i++) {
+//			int min = i; 
+//			// 첫 번째 값을 넣는 게 아니라 첫 번째 인덱스를 넣고 시작, 최솟값의 위치를 알아야 바꾸니까
+//			
+//				// j는 항상 i다음부터 비교하므로 i+1
+//			for (int j = i + 1; j < arr.length; j++) { 
+//				if (arr[j] < arr[min]) {
+//					min = j;
+//					// arr[min] 이 개념 하나로, 
+//					// 최솟값의 인덱스를 카운트 할 수도 있고, 그 인덱스로 값에 접근할 수도 있다 
+//				}
+//			}
+//			tmp = arr[i];
+//			arr[i] = arr[min];
+//			arr[min] = tmp;
+//			// 이 과정-최솟값을 찾은 후의 자리 변경-을 위해 위의 j값을 min에 대입한 것이고
+//			// 따라서 min은 i의 for문 안쪽에 있어도 된다.
+//		}
+//		System.out.println(Arrays.toString(arr));
+		
+		
+		// 주석 빼고 정리
+//		int tmp = 0;
+//
+//		for (int i = 0; i < arr.length - 1; i++) {
+//			int min = i; 
+//			for (int j = i + 1; j < arr.length; j++) { 
+//				if (arr[j] < arr[min]) {
+//					min = j;
+//				}
+//			}
+//			tmp = arr[i];
+//			arr[i] = arr[min];
+//			arr[min] = tmp;
+//		}
+//		System.out.println(Arrays.toString(arr));
 		
 		
 		
@@ -99,27 +114,29 @@ public class Sort {
 		 */
 		
 		
-		// 버블정렬 코드 이상, 정렬 바르게 X
-//		int tmp = 0;
-//		
-//		for (int i = 0; i < arr.length; i++) {
-//			//int cnt = 0;
-//			boolean flag = true;
-//			for (int j = 0; j < arr.length - 1 - i; j++) {
-//				if (arr[j] > arr[j + 1]) {
-//					tmp = arr[j];
-//					arr[j] = arr[j + 1];
-//					arr[j + 1] = tmp;
-//					flag = false;
-//					//cnt++;
-//				}
-//				if(flag){
-//				//if (j > 0 && cnt == 0) {
-//					break;
-//				}
-//			}
-//		}
-//		System.out.println(Arrays.toString(arr));
+		// [1, 2, 3, 4]
+		// 어려우면 짧은 배열로 생각해보기
+		
+		int tmp = 0;
+		for (int i = 0; i < arr.length-1; i++) {
+			boolean flag = true;
+			for (int j = 0; j < arr.length -1 -i; j++) {
+				if (arr[j] > arr[j + 1]) { // 등호 상관 없음
+					tmp = arr[j];
+					arr[j] = arr[j + 1];
+					arr[j + 1] = tmp;
+					flag = false;
+				}
+			}
+			if(flag){
+				// 값 교환 후 그 값 뒤의 배열 속 데이터 순서가 정렬된 순서라면 정렬 필요 X
+				// 정렬 그만하기 -> 반복문 탈출  
+				break;
+			}
+		}
+		//System.out.println(i + "번 : " + Arrays.toString(arr));
+		
+		System.out.println("끝 : " + Arrays.toString(arr));
 		
 		
 		// 삽입정렬
