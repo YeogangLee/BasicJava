@@ -27,6 +27,7 @@ public class Baseball_ {
 			int i2 = input % 10; //10의 자리의 1의 자리
 			input /= 10;		 //10의 자리 -> 1의자리
 			int i1 = input % 10; //1의 자리
+			//int i1 = input; 같은 결과값, 어차피 지금 input에는 10 미만의 숫자만 있으므로
 			
 			int strike = 0;
 			int ball = 0;

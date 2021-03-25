@@ -36,26 +36,26 @@ public class Quiz {
 		
 		
 		//그래프 그리기
-//		int[] arr = new int[20];
-//		for(int i = 0; i < arr.length; i++){
-//			arr[i] = (int)(Math.random() * 5) + 1;
-//		}
-//		System.out.println(Arrays.toString(arr));
-//		
-//		
-//		/*
-//		 * 1~5 사이의 숫자가 발생된 만큼 *을 사용해 그래프를 그려주세요.
-//		 * 
-//		 * [4, 3, 2, 5, 4, 1, 4, 2, 2, 2, 2, 3, 3, 1, 5, 1, 1, 3, 1, 2]
-//		 * 
-//		 * 1 : ***** 5
-//		 * 2 : **** 4
-//		 * 3 : **** 4
-//		 * 4 : **** 4
-//		 * 5 : *** 3
-//		 * 
-//		 */
-//		
+		int[] arr = new int[20];
+		for(int i = 0; i < arr.length; i++){
+			arr[i] = (int)(Math.random() * 5) + 1;
+		}
+		System.out.println(Arrays.toString(arr));
+		
+		
+		/*
+		 * 1~5 사이의 숫자가 발생된 만큼 *을 사용해 그래프를 그려주세요.
+		 * 
+		 * [4, 3, 2, 5, 4, 1, 4, 2, 2, 2, 2, 3, 3, 1, 5, 1, 1, 3, 1, 2]
+		 * 
+		 * 1 : ***** 5
+		 * 2 : **** 4
+		 * 3 : **** 4
+		 * 4 : **** 4
+		 * 5 : *** 3
+		 * 
+		 */
+		
 //		int[] cnt = new int[5];
 //		
 //		for(int i=0; i < arr.length; i++){
@@ -74,63 +74,63 @@ public class Quiz {
 ////		}
 //		
 //		for (int i = 0; i < cnt.length; i++) {
-//			System.out.print((i + 1) + " : ");
+//			System.out.print((i + 1) + " : " + cnt[i]);
 //			for (int j = 0; j < cnt[i]; j++) {
-//				System.out.print("*");
+//				System.out.print(" *");
 //			}
-//			System.out.println(" " + cnt[i]);
+//			System.out.println();
 //		}
-//		
-//		
-//		//
-//		int[] counts = new int[5];
-//		for(int i = 0; i < arr.length; i++){
-//			counts[arr[i]-1]++;
-//		} // BCoT /**/
-//		for (int i = 0; i < counts.length; i++) {
-//			System.out.print((i + 1) + " : ");
-//			for (int j = 0; j < counts[i]; j++) {
-//				System.out.print("*");
-//			}
-//			System.out.println(" " + counts[i]);
-//		}
+		
+		
+		//선생님작성
+		int[] counts = new int[5];
+		for(int i = 0; i < arr.length; i++){
+			counts[arr[i]-1]++;
+		} // code**
+		for (int i = 0; i < counts.length; i++) {
+			System.out.print((i + 1) + " : " + counts[i]);
+			for (int j = 0; j < counts[i]; j++) {
+				System.out.print(" *");
+			}
+			System.out.println();
+		}
 				
 		
 		//중복되지 않는 배열
-		int[] arr = new int[10];
-		
-		for(int i = 0; i < arr.length; i++){
-			arr[i] = (int)(Math.random()*5)+1;
-		}
-		System.out.println(Arrays.toString(arr));
-		
-		/*
-		 * 1~5 사이의 랜덤한 값이 10개 저장된 배열에서 중복된 값이 제거된 배열을 만들어주세요.
-		 * [2, 2, 2, 2, 1, 1, 4, 1, 1, 4]
-		 * [2, 1, 4]
-		 * 
-		 */
-		
-		
-		//
-		int[] temp = new int[5];
-		int count = 0;
-		for(int i = 0; i < arr.length; i++){
-			boolean flag = true;
-			for(int j = 0; j < temp.length; j++){
-				if(arr[i] == temp[j]){
-					flag = false;
-				}
-			}
-			if(flag){
-				temp[count++] = arr[i];
-			}
-		}
-		int[] result = new int[count];
-		for(int i = 0; i < result.length; i++){
-			result[i] = temp[i];
-		}
-		System.out.println(Arrays.toString(result));		
+//		int[] arr = new int[10];
+//		
+//		for(int i = 0; i < arr.length; i++){
+//			arr[i] = (int)(Math.random()*5)+1;
+//		}
+//		System.out.println(Arrays.toString(arr));
+//		
+//		/*
+//		 * 1~5 사이의 랜덤한 값이 10개 저장된 배열에서 중복된 값이 제거된 배열을 만들어주세요.
+//		 * [2, 2, 2, 2, 1, 1, 4, 1, 1, 4]
+//		 * [2, 1, 4]
+//		 * 
+//		 */
+//		
+//		
+//		//
+//		int[] temp = new int[5];
+//		int count = 0;
+//		for(int i = 0; i < arr.length; i++){
+//			boolean flag = true;
+//			for(int j = 0; j < temp.length; j++){
+//				if(arr[i] == temp[j]){
+//					flag = false;
+//				}
+//			}
+//			if(flag){
+//				temp[count++] = arr[i];
+//			}
+//		}
+//		int[] result = new int[count];
+//		for(int i = 0; i < result.length; i++){
+//			result[i] = temp[i];
+//		}
+//		System.out.println(Arrays.toString(result));		
 		
 	}
 

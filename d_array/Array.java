@@ -158,24 +158,26 @@ public class Array {
 //		}
 //		System.out.println("min : " + Min + "  / max :" + Max);
 //
-//		int[] shuffle = new int[10];
-//		for (int i = 0; i < shuffle.length; i++) {
-//			shuffle[i] = i + 1;
-//		}
-//		System.out.println(Arrays.toString(shuffle));
-//
-//		
-//		// 배열의 값을 섞어주세요.
-//
-//		// 2. 반복문으로 반복 실행
-//		for (int i = 0; i < shuffle.length * 10; i++) { // 10을 곱해주는 이유는 많이 실행하기 위해
-//			// 1. 랜덤값 발생
-//			int random = (int) (Math.random() * shuffle.length);
-//			int temp = shuffle[0];
-//			shuffle[0] = shuffle[random];
-//			shuffle[random] = temp;
-//		}
-//		System.out.println(Arrays.toString(shuffle));
+		
+		
+		
+		// 배열의 값을 섞어주세요.
+		int[] shuffle = new int[10];
+		for (int i = 0; i < shuffle.length; i++) {
+			shuffle[i] = i + 1;
+		}
+		System.out.println(Arrays.toString(shuffle));
+		
+		// 배열의 값을 섞어주세요.
+		// 2. 반복문으로 반복 실행
+		for (int i = 0; i < shuffle.length * 10; i++) { // 10을 곱해주는 이유는 많이 실행하기 위해
+			// 1. 랜덤값 발생
+			int random = (int) (Math.random() * shuffle.length);
+			int temp = shuffle[0];
+			shuffle[0] = shuffle[random];
+			shuffle[random] = temp;
+		}
+		System.out.println(Arrays.toString(shuffle));
 //
 //		
 //		// 1~10 사이의 랜덤값을 500번 생성하고, 각 숫자가 생성된 횟수를 출력해주세요.
