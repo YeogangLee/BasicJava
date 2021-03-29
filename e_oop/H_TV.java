@@ -103,7 +103,7 @@ public class H_TV {
 				
 			default:
 				System.out.println("종료되었습니다.");
-				System.exit(0);
+				System.exit(0); //프로그램이 완전히 종료된다
 				break;
 			}
 		}

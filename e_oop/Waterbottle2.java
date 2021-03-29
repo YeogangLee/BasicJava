@@ -29,7 +29,9 @@ public class Waterbottle2 {
 				capacity++;
 			} 
 		} else if(capacity > MAX_CAPACITY) {
-			System.out.println("물병이 이미 가득 찼습니다");
+			System.out.println("이미 물병이 가득 찼습니다");
+		} else {
+			System.out.println("뚜껑이 닫혀있습니다");
 		}
 		return capacity;
 	}
@@ -40,16 +42,20 @@ public class Waterbottle2 {
 				capacity--;
 			} 
 		} else {
-			System.out.println("물병이 이미 비어있습니다");
+			System.out.println("물병이 이미 비어 있습니다");
 		}
 		return capacity;
 	}
-		
+	
+	//물이 차있는 상태에서 뒤집기는 안되나요?
 	void upsideDown(){
 		if(!cap){
 			System.out.println("뚜껑이 닫혀있습니다");
 		} else if(0 < capacity) {
 			System.out.println("물병에 물이 담겨 있습니다");
+		} else {
+			System.out.println("물병을 뒤집었습니다.");
+			System.out.println(" ___");
 		}
 	}
 	
