@@ -14,15 +14,20 @@ public class home_Learning {
 	
 	home_User user;
 	home_Quiz[] quizzes;
-	
+	home_Quiz quiz;
+		
 	home_Learning(){
-		user = new home_User(1, 0, 50, 0, 0, 5, 0, "듀오", "대한민국", "2019/11/21", "Diamond");
+		user = new home_User(1, 0, 50, 0, 5, "듀오", "대한민국", "2019/11/19", "Diamond");
 		
 		user.languages[0] = "영어";
 		user.languages[1] = "독일어";
 				
-		this.quizzes = new home_Quiz[5];		
-		quizzes[0] = new home_Quiz("Es ____ im Januar.", "It snows in January.", "schneit", "schneet", "schniet", 0);
+		this.quizzes = new home_Quiz[5];
+		quizzes[0] = new home_Quiz("Es ____ im Januar.", "Es schneit im Januar.", "It snows in January.", "schneit", "schneet", "schniet", 0);
+		quizzes[1] = new home_Quiz("Sail", "항해", "Sail 항해", "항구", "관찰", "항해", 2);
+		quizzes[2] = new home_Quiz("the pen", "der Stift", "pen : der Stift", "der Fernseher", "der Stift", "der Fernsehen", 1);
+		quizzes[3] = new home_Quiz("We are of the same age.", "우리 동갑이에요.", "We are of the same age.\n우리는 동갑이에요.", "우리 동갑이에요.", "그 동갑이야.", "그녀 동갑이다.", 0);
+		
 	}
 	
 	public static void main(String[] args) {
@@ -42,6 +47,7 @@ public class home_Learning {
 				break;
 			case 2:
 				selectLanguage();
+				
 				break;
 			case 3:
 				showRank();
@@ -55,8 +61,7 @@ public class home_Learning {
 	}
 	
 	void selectLanguage(){
-		
-		int input = 0;
+		int count = 0;
 		language : while(true){
 			for (int i = 0; i < user.languages.length; i++) {
 				if (user.languages[i] != null) {
@@ -65,31 +70,80 @@ public class home_Learning {
 			}
 			System.out.println("0. 이전으로");
 			
+			int input = ScanUtil.nextInt();
+			count = showQuiz(input, count);
+			System.out.println("다음 문제로");
+			System.out.println("1.예\t 2.아니오");
 			input = ScanUtil.nextInt();
 			switch(input) {
 			case 1:
-				learnEng();
+				count = showQuiz(input, count);
 				break;
 			case 2:
-				learnGer();
 				break language;
 			default:
 				break language;
 			}
 		}
-		
 	}
 	
 	private void learnEng() {
-		System.out.println("영어");
+		
+		for(int i = 0; i < quizzes.length && quizzes[i] != null; i++){
+			System.out.print("문제"+(i+1)+". ");
+			quiz = quizzes[i];
+			int answer = quiz.showQuiz();
+			System.out.print(">");
+			int input = ScanUtil.nextInt();
+			if((answer+1) == input){
+				user.answerTrue();
+				quiz.showMeaning();
+			} else {
+				user.answerFalse(user.heart);
+				quiz.showAnswer();
+			}
+		}		
 		
 	}
 	
 	private void learnGer() {
-		System.out.println("독일어");
-		//int answer = home_Quiz.showQuiz();
+		int country=0;
+		int input;
+		int count = 0;
+		do{
+			showQuiz(country, count);
+			System.out.println("다음 문제로");
+			System.out.println("1.예\t 2.아니오");
+			input = ScanUtil.nextInt();
+			count++;
+		}while(input != 2);
 		
 	}	
+	
+	int showQuiz(int country, int count){
+		//this.count = count;
+		if(count < quizzes.length){
+			//홀수문제 영어, 짝수문제 독일어
+			int index = country + count*2;
+			System.out.print("문제"+(count+1)+". ");
+			quiz = quizzes[index];
+			int answer = quiz.showQuiz();
+			System.out.print(">");
+			int input = ScanUtil.nextInt();
+			if((answer+1) == input){
+				user.answerTrue();
+				quiz.showMeaning();
+			} else {
+				boolean flag = false;
+				flag = user.answerFalse(user.heart);
+				if(flag)quiz.showAnswer();
+			}
+			return count++;
+		} else {
+			System.out.println("문제를 다 풀었습니다");
+			return count;
+		}
+	}
 
 	void showRank(){
 		

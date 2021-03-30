@@ -4,13 +4,15 @@ public class home_Quiz {
 	
 	int answer;
 	String question;
-	String meaning;
-	String[] examples;
+	String baseSent;
+	String meanSent;	
+	String[] examples = new String[3];
 	
-	home_Quiz(String question, String meaning, String example1, String example2, String example3, int answer){
+	home_Quiz(String question, String baseSent, String meanSent, String example1, String example2, String example3, int answer){
 		this.answer = answer;
 		this.question = question;
-		this.meaning = meaning;
+		this.baseSent = baseSent;
+		this.meanSent = meanSent;
 		this.examples[0] = example1;
 		this.examples[1] = example2;
 		this.examples[2] = example3;
@@ -18,17 +20,24 @@ public class home_Quiz {
 	
 	int showQuiz(){
 		System.out.println(question);
-		System.out.println(examples);
+		for(int i = 0; i < examples.length; i++){
+			System.out.print((i+1)+"."+examples[i]+"  ");
+		}
+		System.out.println();
 		return answer;
 	}
 	
-	void showMeaning(int answer){
-		if(this.answer == answer){
-			System.out.println(meaning);
-		}// 메서드 호출 후 답 비교... 	
+//	void showMeaning(int answer){
+//		if(this.answer == answer){
+//			System.out.println(meaning);
+//		}// 메서드 호출 후 답 비교... 	
+//	}
+	
+	void showMeaning(){
+		System.out.println("해설 | "+meanSent+"\n"); 	
 	}
 	
-	void showMeaning2(){
-		System.out.println(meaning); 	
-	}// 메서드 호출하면 무조건 의미 보여주기
+	void showAnswer(){
+		System.out.println("정답 | "+baseSent+"\n"); 	
+	}
 }

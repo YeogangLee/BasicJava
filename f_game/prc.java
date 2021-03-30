@@ -17,6 +17,12 @@ public class prc {
 			input = sc.nextLine();
 		} while(input.equals(str));
 		
+		for(int i = 0; i < 5; i++){
+			for(int j = 1; j < 5; j++){
+				if(i == j) continue;
+				System.out.println(i + " % " + j + "=" + i%j);
+			}
+		}
 	}
 
 }
