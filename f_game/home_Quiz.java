@@ -19,22 +19,16 @@ public class home_Quiz {
 	}
 	
 	int showQuiz(){
-		System.out.println(question);
+		System.out.println(question+"\n");
 		for(int i = 0; i < examples.length; i++){
-			System.out.print((i+1)+"."+examples[i]+"  ");
+			System.out.println((i+1)+". "+examples[i]);
 		}
 		System.out.println();
 		return answer;
 	}
-	
-//	void showMeaning(int answer){
-//		if(this.answer == answer){
-//			System.out.println(meaning);
-//		}// 메서드 호출 후 답 비교... 	
-//	}
-	
+		
 	void showMeaning(){
-		System.out.println("해설 | "+meanSent+"\n"); 	
+		System.out.println("<해설>\n" + meanSent + "\n" + baseSent + "\n"); 	
 	}
 	
 	void showAnswer(){

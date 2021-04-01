@@ -30,7 +30,7 @@ public class Character {
 		System.out.println("===============================");
 		System.out.println("--------------상태--------------");
 		System.out.println("이름 : " + name);
-		System.out.println("레벨 : " + level + "(" + "exp" + "/100)");
+		System.out.println("레벨 : " + level + "(" + exp + "/100)");
 		System.out.println("체력 : " + hp + "/" + maxHp);
 		System.out.println("마나 : " + mp + "/" + maxMp);
 		System.out.println("공격 : " + att);
