@@ -129,8 +129,8 @@ public class home_Learning {
 		
 		System.out.println("[Bronze]------------------------------------------");
 		
-		System.out.println("이름\t| " + name);
-		System.out.println("거주지\t| " + country);
+//		System.out.println("이름\t| " + name);
+//		System.out.println("거주지\t| " + country);
 		
 	}
 	

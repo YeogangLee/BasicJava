@@ -70,6 +70,20 @@ class SCV extends Unit{
 		}
 	}
 }
+//위의 코드에서 주석 없는 scv2, 이름만 변경
+class SCV2 extends Unit{
+	SCV2(){
+		super(60);
+	}
+	void repair(Repairable r){
+		if(r instanceof Unit){
+			Unit u = (Unit)r;
+			while(u.hp < u.MAX_HP){
+				u.hp++;
+			}
+		}
+	}
+}
 
 //새로운 관계를 만들 때 인터페이스 사용
 //내용이 없는대로 놔둬도 괜찮다.
