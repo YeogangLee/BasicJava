@@ -39,6 +39,7 @@ public class SetComma {
 				startIndex= 0;
 			}
 			
+			//strSub = str.substring(str.length()-3*(i+1), str.length()-3*i);
 			strSub = str.substring(startIndex, endIndex);
 			
 			strFin += strSub;
@@ -78,10 +79,10 @@ public class SetComma {
 //			str3 = str.substring(endIndex-3*2,endIndex-3*1);
 //			str4 = str.substring(endIndex-3*1,endIndex-3*0);
 
-//		=>	strSub = str.substring(startIndex, str.length()-3*i);
-			
+//		=>	strSub = str.substring(str.length()-3*(i+1), str.length()-3*i);
+									//startIndex
 		}
-		System.out.println("strFin :" + strFin);
+		System.out.println(strFin);
 		
 	}
 

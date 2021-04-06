@@ -129,12 +129,15 @@ public class StringClass {
 		
 		//String valueOf()
 		int number = 10;
+		Integer numInteger = 0;
 		//String으로의 형변환 방법 2가지
 		//1. valueOf()
 		str = String.valueOf(number);
 		//2. number + ""(빈문자열), 문자열과 만났기 때문에 자동적으로 문자열로 변환된다
 		str = number + "";
 		
+		System.out.println("numInteger : "+ numInteger.getClass().getName());
+		System.out.println("str        : " + str.getClass().getName());
 		
 	}
 
