@@ -2,7 +2,7 @@ package j_collection;
 
 import java.util.ArrayList;
 
-public class Score {
+public class Score_ {
 
 	public static void main(String[] args) {
 		/*
@@ -41,7 +41,6 @@ public class Score {
 		ArrayList<Integer> subSums = new ArrayList<>();
 		ArrayList<Double> subAvgs = new ArrayList<>();
 		
-		//각 학생들의 과목별 점수 생성과, 학생 수만큼 랭크 ArrayList에 1 추가
 		for(int i = 0; i < students.size(); i++) {
 			ranks.add(1);
 			
@@ -52,7 +51,6 @@ public class Score {
 			scores.add(score);
 		}
 		
-		//합계와 평균
 		for(int i = 0; i < scores.size(); i++) {
 			int sum = 0;
 			for(int j = 0; j < scores.get(i).size(); j++) {
@@ -60,11 +58,8 @@ public class Score {
 			}
 			sums.add(sum);
 			avgs.add(Math.round((double)sum / scores.get(i).size() * 100) / 100.0);
-			//
-			
 		}
 		
-		//석차
 		for(int i = 0; i < sums.size(); i++) {
 			for(int j = 0; j < sums.size(); j++) {
 				if(sums.get(i) < sums.get(j)) {
@@ -73,7 +68,6 @@ public class Score {
 			}
 		}
 		
-		//랭크 순위 매기기
 		for(int i = 0; i < ranks.size(); i++) {
 			int min = i;
 			for(int j = i + 1; j < ranks.size(); j++) {
@@ -103,7 +97,6 @@ public class Score {
 			ranks.set(min, tempRank);
 		}
 		
-		//과목별 합계 구하기
 		for(int i = 0; i < subjects.size(); i++) {
 			int sum = 0;
 			for(int j = 0; j < students.size(); j++) {
@@ -144,5 +137,7 @@ public class Score {
 	}
 
 }
+
+
 
 
