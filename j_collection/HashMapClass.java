@@ -74,7 +74,6 @@ public class HashMapClass {
 			 * : 의 오른쪽에는 여러 데이터를 저장할 수 있는 형태의 데이터가 온다
 			 * : 의 왼쪽에는 변수가 오는데, 변수의 자료형은 저장된 값 중 하나
 			 */
-			
 		}
 		
 		HashMap<String, Object> row = new HashMap<>();
