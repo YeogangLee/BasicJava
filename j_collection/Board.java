@@ -81,7 +81,7 @@ public class Board {
 			
 			switch (input) {
 			case 1:
-				System.out.println("보드 사이즈 : "+board.size());
+				//System.out.println("보드 사이즈 : "+board.size());
 				System.out.println("조회할 글 번호 입력>");
 				int numW = ScanUtil.nextInt() - 1;
 				if(numW==1){ //0 입력시
@@ -122,10 +122,13 @@ public class Board {
 						System.out.println("글을 정말로 삭제하시겠습니까?(y/n)");
 						String yesno = ScanUtil.nextLine();
 						if(yesno.equals("y")){
-							//아래처럼 하면, board의 행 자체가 삭제되는 게 아니라
-							//board의 numW행의 데이터가 삭제되므로,
-							//행은 남아있고 그자리에 null값이 채워진다
-							// -> board의 size 변화X
+							/*
+							 * 아래처럼 하면, board의 행 자체가 삭제되는 게 아니라
+							 * board의 numW행의 데이터가 삭제되므로,
+							 * 행은 남아있고 그자리에 null값이 채워진다 ->
+							 * board의 size 변화X
+							 */
+							
 //							board.get(numW).remove("num");
 //							board.get(numW).remove("title");
 //							board.get(numW).remove("writer");
@@ -133,7 +136,7 @@ public class Board {
 //							board.get(numW).remove("writing");
 							
 							board.remove(numW);
-							System.out.println("보드 사이즈 : "+board.size());
+							//System.out.println("보드 사이즈 : "+board.size());
 							//글 번호 수정
 							for(int i = numW; i < board.size(); i++){
 								board.get(i).put("num", ((int)board.get(i).get("num"))-1);
