@@ -39,17 +39,19 @@ public class JDBC_SELECT {
 			ResultSetMetaData metaData = rs.getMetaData();
 			int columnCount = metaData.getColumnCount();
 			
-			for(int i = 1; i < columnCount; i++){
-				System.out.print(metaData.getColumnName(i)+"\t");
+			System.out.print(metaData.getColumnName(1) + "\t");
+			for(int i = 2; i <= columnCount; i++){
+				System.out.print(metaData.getColumnName(i) + "\t\t");
 			}
 			System.out.println();
 			while(rs.next()){
 				for(int i = 1; i < columnCount; i++){
 					Object object = rs.getObject(i);
-					System.out.print(object + "\t");
+					System.out.print(object + "\t\t");
 				}
 				System.out.println();
 			}
+			System.out.println();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -57,10 +59,7 @@ public class JDBC_SELECT {
 			if(ps != null) try {ps.close();} catch(Exception e) {}
 			if(con != null) try {con.close();} catch(Exception e) {}
 		}
-		
-		//지금 문제 : 1 조회 입력, 1번글 바로 조회, 글 목록을 고를수X
-		
-		
+				
 		System.out.println("1.수정\t2.삭제\t0.목록");
 		System.out.print("입력>");
 		int input2 = ScanUtil.nextInt();

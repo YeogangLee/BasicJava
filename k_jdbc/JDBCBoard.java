@@ -62,6 +62,10 @@ public class JDBCBoard {
 				//조회 SELECT
 				System.out.print("게시글 번호 입력>");
 				int boardNo = ScanUtil.nextInt();
+				if(boardNo > wcount){
+					System.out.println("잘못된 번호입니다.");
+					break;
+				}				
 				k_jdbc.JDBC_SELECT.main(boardNo);
 				break;
 				
@@ -101,6 +105,7 @@ public class JDBCBoard {
 			rs = ps.executeQuery();  
 			ResultSetMetaData metaData = rs.getMetaData();
 			int columnCount = metaData.getColumnCount();
+			
 			System.out.print(metaData.getColumnName(1) + "\t");
 			for(int i = 2; i <= columnCount; i++){
 				System.out.print(metaData.getColumnName(i) + "\t\t");
@@ -115,7 +120,7 @@ public class JDBCBoard {
 				}
 				System.out.println();
 				wcount++;
-			}	
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
