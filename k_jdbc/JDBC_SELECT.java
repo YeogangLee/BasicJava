@@ -30,7 +30,6 @@ public class JDBC_SELECT {
 			ps = con.prepareStatement(sql);
 			
 			
-			//ps.setString(1, "IS NOT NULL");
 			ps.setInt(1, BOARD_NO);
 			
 			rs = ps.executeQuery();
@@ -66,12 +65,12 @@ public class JDBC_SELECT {
 		
 		switch (input2) {
 		case 1:
-			//수정 UPDATE
+			//수정 UPDATE 클래스
 			k_jdbc.JDBC_UPDATE.main(BOARD_NO);
 			break;
 			
 		case 2:
-			//삭제 DELETE
+			//삭제 DELETE 클래스 
 			k_jdbc.JDBC_DELETE.main(BOARD_NO);
 			break;
 			

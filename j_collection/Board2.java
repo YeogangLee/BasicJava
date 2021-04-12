@@ -122,6 +122,7 @@ public class Board2 {
 		}
 	}
 	
+	//등록
 	static void insert(ArrayList<HashMap<String, Object>> boardList)
 	{
 		HashMap<String, Object> board = new HashMap<>();
@@ -146,6 +147,7 @@ public class Board2 {
 		System.out.println("글이 정상적으로 등록되었습니다.");
 	}
 	
+	//조회
 	static void read(ArrayList<HashMap<String, Object>> boardList)
 	{
 		SimpleDateFormat formatDate = new SimpleDateFormat("yyyy/MM/dd");
@@ -184,6 +186,7 @@ public class Board2 {
 			}
 	}
 	
+	//수정
 	static void update(int numW, ArrayList<HashMap<String, Object>> boardList)
 	{
 		System.out.println("수정할 항목>");
@@ -208,6 +211,7 @@ public class Board2 {
 			}
 	}
 	
+	//삭제
 	static void delete(int numW, ArrayList<HashMap<String, Object>> boardList)
 	{
 		System.out.println("글을 정말로 삭제하시겠습니까?(y/n)");

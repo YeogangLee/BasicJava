@@ -3,8 +3,6 @@ package k_jdbc;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
 import e_oop.ScanUtil;
@@ -19,7 +17,6 @@ public class JDBC_UPDATE {
 		
 		Connection con = null;
 		PreparedStatement ps = null;
-		//ResultSet rs = null;
 		
 		try {
 			con = DriverManager.getConnection(url, user, pass);
@@ -62,25 +59,13 @@ public class JDBC_UPDATE {
 			default: 
 				System.out.println("잘못된 숫자 입력"); break;
 			}
-			
-//			String sql = "UPDATE TB_JDBC_BOARD "
-//					+ "      SET TITLE = ?,"
-//					+ "			 CONTENT = ?"
-//					+ "    WHERE BOARD_NO = ?";
-//			ps = con.prepareStatement(sql);
-//			
-//			rs = ps.executeQuery();
-//			ResultSetMetaData metaData = rs.getMetaData();
-			
-				
-			
+						
 			int result = ps.executeUpdate();
 			System.out.println(result + "개의 행이 영향을 받았습니다.");
 			System.out.println(result + "개의 행이 성공적으로 수정되었습니다.");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-//			if(rs != null) try {rs.close();} catch(Exception e) {}
 			if(ps != null) try {ps.close();} catch(Exception e) {}
 			if(con != null) try {con.close();} catch(Exception e) {}
 		}
